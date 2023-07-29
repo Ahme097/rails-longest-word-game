@@ -8,13 +8,12 @@ class GamesController < ApplicationController
   end
 
   def score
-
-    def english_word?
       @word = params[:result]
-      response = URI.open("https://wagon-dictionary.herokuapp.com/#{@word}")
-      json = JSON.parse(response.read)
-      json['found']
-    end
+      def english_word?(word)
+        response = URI.open("https://wagon-dictionary.herokuapp.com/#{word}")
+        json = JSON.parse(response.read)
+        json['found']
+      end
   end
 
   # private
